@@ -14,3 +14,12 @@ Scan failed
 5. Turn on device
 6. Run related processes
 7. All fixed
+
+### Issue #2:
+```shell
+scanimage: sane_read: Error during device I/O
+Scan failed
+```
+
+1. Press stop/exit on device
+2. Re-run scan command
