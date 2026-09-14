@@ -19,24 +19,8 @@ while [[ -e "$SCAN_PATH/brother-scan-$(printf '%03d' "$N").$EXT" ]]; do
 done
 
 OUTPUT="$SCAN_PATH/brother-scan-$(printf '%03d' "$N").$EXT"
-RESOLUTION="300"
 
-
-case "$1" in
-    "png")
-        RESOLUTION="600"
-        ;;
-    "pdf")
-        RESOLUTION="300"
-        ;;
-        
-    *)
-        echo "Error: Invalid format '$EXT'. Please choose 'png' or 'pdf'."
-        exit 1
-        ;;
-esac
-
-scanimage -d "$DEVICE_NAME" --resolution="$RESOLUTION" --format="$EXT" > "$OUTPUT" &
+scanimage -d "$DEVICE_NAME" --format="$EXT" > "$OUTPUT" &
 PID=$!
 
 echo "Scanning → $OUTPUT"
